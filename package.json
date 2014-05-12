@@ -1,0 +1,22 @@
+{
+  "name": "xpl-cc128",
+  "version": "0.1.0",
+  "description": "XPL bridge for Current Cost 128",
+  "main": "xpl-culw.js",
+  "repository": "",
+  "dependencies": {
+	  "xpl-api": ">=1.0.8",
+	  "commander": "latest",
+	  "serialport": "latest",
+	  "process": "latest"
+  },
+  "keywords": [
+    "Node.js",
+    "Node",
+    "XPL",
+    "current cost", "CC128", "CC"
+  ],
+  "author": "Olivier Oeuillot",
+  "license": "GPL",
+  "readmeFilename": "README.md"
+}
