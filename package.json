@@ -1,14 +1,14 @@
 {
   "name": "xpl-cc128",
-  "version": "0.1.1",
+  "version": "0.3.0",
   "description": "XPL bridge for Current Cost 128",
-  "main": "xpl-culw.js",
-  "repository": "",
+  "main": "xpl-currentCost.js",
+  "bin": "./xpl-currentCost.js",
+  "repository": { "type": "git", "url": "https://github.com/oeuillot/xpl-cc128.git" },
   "dependencies": {
-	  "xpl-api": ">=1.0.9",
+	  "xpl-api": ">=1.0.10",
 	  "commander": "latest",
-	  "serialport": "latest",
-	  "process": "latest"
+	  "serialport": "latest"
   },
   "keywords": [
     "Node.js",
