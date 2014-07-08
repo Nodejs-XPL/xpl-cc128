@@ -15,10 +15,11 @@ commander.command('listSerialPort').description("List serial ports").action(
       console.log("List serial ports:");
       serialport.list(function(err, ports) {
         if (err) {
-          console.log("End of list");
-
+          console.log("List performs error : " + err);
           process.exit(0);
+          return;
         }
+
         ports.forEach(function(port) {
           console.log("  Port name='" + port.comName + "' pnpId='" +
               port.pnpId + "' manufacturer='" + port.manufacturer + "'");
