@@ -1,6 +1,6 @@
 {
   "name": "xpl-cc128",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "description": "XPL bridge for Current Cost 128",
   "main": "xpl-currentCost.js",
   "bin": "./xpl-currentCost.js",
