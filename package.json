@@ -1,6 +1,6 @@
 {
   "name": "xpl-cc128",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "XPL bridge for Current Cost 128",
   "bin": {
   	"xpl-cc128": "./bin/xpl-cc128"
@@ -19,7 +19,7 @@
   ],
   "files": [
     "xpl-currentCost.js",
-    "lib/culw-serial.js",
+    "lib/cc128-serial.js",
     "bin/xpl-cc128"
 	],
   "author": "Olivier Oeuillot",
