@@ -9,6 +9,8 @@ commander.version(require("./package.json").version).option(
 
 Xpl.fillCommander(commander);
 
+commander.option("--heapDump", "Enable heap dump (require heapdump)");
+
 commander.command('listSerialPort').description("List serial ports").action(
     function() {
 
@@ -136,3 +138,8 @@ commander
         });
 
 commander.parse(process.argv);
+
+if (commander.headDump) {
+  var heapdump = require("heapdump");
+  console.log("***** HEAPDUMP enabled **************");
+}
