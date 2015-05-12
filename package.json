@@ -7,13 +7,11 @@
   },
   "repository": { "type": "git", "url": "https://github.com/oeuillot/xpl-cc128.git" },
   "dependencies": {
-	  "xpl-api": ">=1.0.12",
+	  "xpl-api": "~1.0.12",
 	  "commander": "~2.3",
 	  "serialport": "~1.4"
   },
   "keywords": [
-    "Node.js",
-    "Node",
     "XPL",
     "current cost", "CC128", "CC"
   ],
