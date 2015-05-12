@@ -100,9 +100,7 @@ commander.command('start').description("Start processing CC128 datas").action(fu
 				}, function(body, callback) {
 					xpl.sendXplTrig(body, callback);
 
-				}, {
-				// Configuration
-				}, function(error, cc128) {
+				}, commander, function(error, cc128) {
 					if (error) {
 						console.log("Can not initialize CC128 engine ", error);
 						process.exit(3);
