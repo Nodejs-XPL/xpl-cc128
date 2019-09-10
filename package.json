@@ -9,7 +9,7 @@
   "dependencies": {
 	  "xpl-api": "~1.0.12",
 	  "commander": "~2.3",
-	  "serialport": "~1.4"
+	  "serialport": "latest"
   },
   "keywords": [
     "XPL",
