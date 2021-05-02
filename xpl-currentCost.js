@@ -1,11 +1,9 @@
-/*jslint node: true, vars: true, nomen: true */
-'use strict';
+const Xpl = require("xpl-api");
+const commander = require('commander');
+const SerialPort = require('serialport')
+const os = require('os');
 
-var Xpl = require("xpl-api");
-var commander = require('commander');
-var serialport = require("serialport");
-var CC128Serial = require('./lib/cc128-serial');
-var os = require('os');
+const CC128Serial = require('./lib/cc128-serial');
 
 commander.version(require("./package.json").version);
 commander.option("-s, --serialPort <path>", "Serial device path");
@@ -19,7 +17,7 @@ commander.command('listSerialPort').description("List serial ports").action(
     function() {
 
       console.log("List serial ports:");
-      serialport.list(function(err, ports) {
+      SerialPort.list(function(err, ports) {
         if (err) {
           console.log("List performs error : " + err);
           process.exit(0);
@@ -58,16 +56,17 @@ commander
           commander.deviceAliases = Xpl
               .loadDeviceAliases(commander.deviceAliases);
 
-          var sp = new serialport.SerialPort(commander.serialPort, {
-            baudrate : 57600,
-            databits : 8,
-            stopbits : 1,
+          const port  = new SerialPort(commander.serialPort, {
+            baudRate : 57600,
+            dataBits : 8,
+            stopBits : 1,
             parity : 'none',
             rtscts : false,
-            parser : serialport.parsers.readline("\n")
           });
+          //const parser = port.pipe(new Readline({ delimiter: '\r\n' }))
 
-          sp.on("open", function(error) {
+          port.on("open", function(error) {
+            console.log('Parse opened');
             try {
               if (error) {
                 console.log("Can not open serial device '" +
@@ -104,7 +103,7 @@ commander
 
                 new CC128Serial(function(data, callback) {
                   // console.log("Write '" + data + "'");
-                  sp.write(data, callback);
+                  port.write(data, callback);
 
                 }, function(body, callback) {
                   xpl.sendXplTrig(body, callback);
@@ -116,13 +115,13 @@ commander
                     return;
                   }
 
-                  sp.on('data', function(data) {
-                    // console.log('data received: ' + data+"'");
+                  port.on('data', function(data) {
+//                    console.log('data received: ' + data+"'");
 
                     cc128.processSerialData(data);
                   });
 
-                  sp.on('close', function() {
+                  port.on('close', function() {
                     console.log('close received: ' + data);
 
                     cc128.close();
@@ -143,8 +142,3 @@ commander
         });
 
 commander.parse(process.argv);
-
-if (commander.heapDump) {
-  var heapdump = require("heapdump");
-  console.log("***** HEAPDUMP enabled **************");
-}

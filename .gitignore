@@ -2,3 +2,7 @@
 /npm-debug.log
 /.settings
 /.project
+
+node_modules.old/
+
+*.iml

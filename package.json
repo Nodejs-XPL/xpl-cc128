@@ -3,23 +3,28 @@
   "version": "1.0.4",
   "description": "XPL bridge for Current Cost 128",
   "bin": {
-  	"xpl-cc128": "./bin/xpl-cc128"
+    "xpl-cc128": "./bin/xpl-cc128"
   },
-  "repository": { "type": "git", "url": "https://github.com/oeuillot/xpl-cc128.git" },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oeuillot/xpl-cc128.git"
+  },
   "dependencies": {
-	  "xpl-api": "~1.0.12",
-	  "commander": "~2.3",
-	  "serialport": "latest"
+    "commander": "~2.3",
+    "serialport": "^9.0.7",
+    "xpl-api": "~1.0.12"
   },
   "keywords": [
     "XPL",
-    "current cost", "CC128", "CC"
+    "current cost",
+    "CC128",
+    "CC"
   ],
   "files": [
     "xpl-currentCost.js",
     "lib/cc128-serial.js",
     "bin/xpl-cc128"
-	],
+  ],
   "author": "Olivier Oeuillot",
   "license": "GPL",
   "readmeFilename": "README.md"
